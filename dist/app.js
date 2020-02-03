@@ -26,10 +26,18 @@ class App {
     }
     setting() {
         this.app.set('port', this.port || process.env.PORT || 3000);
+        //this.app.use(cors(config.application.cors.server));
     }
     middlewares() {
         this.app.use(morgan_1.default('dev'));
         this.app.use(express_1.default.json());
+        this.app.use((req, res, next) => {
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+            res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+            res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+            next();
+        });
     }
     routes() {
         this.app.use(index_routes_1.default);
