@@ -5,9 +5,14 @@ import { connect } from "../database";
 import { Products } from "../interfaces/Products";
 
 export async function getProducts(req: Request, res: Response): Promise<Response | void>{
+   try {
     const conn = await connect();
     const products = await conn.query('SELECT * FROM products');
-    res.json(products[0]);
+    return res.json(products[0]);
+   }
+    catch (e) {
+        console.log(e)    
+   }
 }
 
 export async function createProducts(req: Request, res: Response): Promise<Response | void>{

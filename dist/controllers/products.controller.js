@@ -12,9 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = require("../database");
 function getProducts(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const conn = yield database_1.connect();
-        const products = yield conn.query('SELECT * FROM products');
-        res.json(products[0]);
+        try {
+            const conn = yield database_1.connect();
+            const products = yield conn.query('SELECT * FROM products');
+            return res.json(products[0]);
+        }
+        catch (e) {
+            console.log(e);
+        }
     });
 }
 exports.getProducts = getProducts;
