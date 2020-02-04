@@ -14,7 +14,7 @@ function getProducts(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const conn = yield database_1.connect();
-            const products = yield conn.query('SELECT * FROM products');
+            const products = yield conn.query('SELECT * FROM products p, category c where c.category_id = p.category_id ');
             return res.json(products[0]);
         }
         catch (e) {

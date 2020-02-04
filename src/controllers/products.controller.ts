@@ -7,7 +7,7 @@ import { Products } from "../interfaces/Products";
 export async function getProducts(req: Request, res: Response): Promise<Response | void>{
    try {
     const conn = await connect();
-    const products = await conn.query('SELECT * FROM products');
+    const products = await conn.query('SELECT a.idarticulo,a.idcategoria, a.idwarehouse, w.namewarehouse as warehouse, c.nombre as categoria,a.codigo, a.nombre,a.stock,a.descripcion,a.imagen,a.condicion, a.precio_costo, a.profit, a.precio_venta, a.others FROM articulo a INNER JOIN categoria c ON a.idcategoria=c.idcategoria INNER JOIN warehouse w on a.idwarehouse=w.idwarehouse');
     return res.json(products[0]);
    }
     catch (e) {
