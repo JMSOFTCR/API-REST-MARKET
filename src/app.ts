@@ -21,7 +21,7 @@ export class App{
 
     //check if the port exists, if it exists take it, if it does not exist, place port 3000
     settings(){
-        this.app.set('port', this.port || process.env.PORT || 3000)
+        this.app.set('port', this.port || process.env.PORT || 4000)
         this.app.set('host', this.host || process.env.HOST || '0.0.0.0')
     }
 
