@@ -23,3 +23,7 @@ function connect() {
     });
 }
 exports.connect = connect;
+/* host: 'localhost',
+user: 'root',
+database: 'db_sistema',
+connectionLimit: 10 */ 
