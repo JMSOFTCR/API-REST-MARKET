@@ -16,3 +16,4 @@ export async function connect(): Promise<Pool>{
 user: 'root',
 database: 'db_sistema',
 connectionLimit: 10 */
+
