@@ -46,7 +46,7 @@ export class App{
 
     //configure the port on listening
     async listen(){
-       await this.app.listen(this.app.get('port'));
+       await this.app.listen(this.app.get('port'), '0.0.0.0');
        await this.app.listen(this.app.get('host')); 
        console.log('Server on port', this.app.get('port'));
        console.log('Server on host', this.app.get('host'));
