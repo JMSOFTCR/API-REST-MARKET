@@ -14,7 +14,7 @@ function getProducts(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const conn = yield database_1.connect();
-            const products = yield conn.query('SELECT * FROM products p, category c where c.category_id = p.category_id ');
+            const products = yield conn.query('SELECT a.idarticulo,a.idcategoria, a.idwarehouse, w.namewarehouse as warehouse, c.nombre as categoria,a.codigo, a.nombre,a.stock,a.descripcion,a.imagen,a.condicion, a.precio_costo, a.profit, a.precio_venta, a.others FROM articulo a INNER JOIN categoria c ON a.idcategoria=c.idcategoria INNER JOIN warehouse w on a.idwarehouse=w.idwarehouse');
             return res.json(products[0]);
         }
         catch (e) {
