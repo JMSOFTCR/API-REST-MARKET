@@ -6,4 +6,4 @@ import { indexWelcome } from "../controllers/index.controller";
 router.route('/')
     .get(indexWelcome);
 
-export default router;
+    export default router;
