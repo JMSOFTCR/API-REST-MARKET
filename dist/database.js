@@ -14,9 +14,9 @@ function connect() {
     return __awaiter(this, void 0, void 0, function* () {
         const connection = yield promise_1.createPool({
             host: 'us-cdbr-iron-east-02.cleardb.net',
-            user: 'becf6fa6f2d2aa',
-            password: '004f338d',
-            database: 'heroku_77f236ed8111f3c',
+            user: 'b177a2417b890a',
+            password: 'd6ca3f29',
+            database: 'heroku_3fba89bbdcdc706',
             connectionLimit: 10
         });
         return connection;
