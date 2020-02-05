@@ -11,7 +11,7 @@ export class App{
 
    private app: Application;
 
-    constructor(private port?: number | string){
+    constructor(private port?: number | string, private host?: number | string){
         this.app = express();
         this.settings();
         this.middlewares();
@@ -21,8 +21,8 @@ export class App{
 
     //check if the port exists, if it exists take it, if it does not exist, place port 3000
     settings(){
-        const host = 'localhost';
         this.app.set('port', this.port || process.env.PORT || 3000)
+        this.app.set('host', this.host || process.env.HOST || '0.0.0.0')
     }
 
     middlewares(){
@@ -47,7 +47,6 @@ export class App{
     //configure the port on listening
     async listen(){
        await this.app.listen(this.app.get('port'));
-       await this.app.listen(this.app.get('host'));
        console.log('Server on port', this.app.get('port'));
     }
 }
