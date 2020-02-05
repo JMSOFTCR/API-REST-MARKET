@@ -13,9 +13,10 @@ const promise_1 = require("mysql2/promise");
 function connect() {
     return __awaiter(this, void 0, void 0, function* () {
         const connection = yield promise_1.createPool({
-            host: 'localhost',
-            user: 'root',
-            database: 'db_sistema',
+            host: 'us-cdbr-iron-east-02.cleardb.net',
+            user: 'becf6fa6f2d2aa',
+            password: '004f338d',
+            database: 'heroku_77f236ed8111f3c',
             connectionLimit: 10
         });
         return connection;
