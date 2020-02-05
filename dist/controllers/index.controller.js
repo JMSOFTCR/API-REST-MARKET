@@ -4,3 +4,4 @@ function indexWelcome(req, res) {
     return res.json('Welcome to my API');
 }
 exports.indexWelcome = indexWelcome;
+;

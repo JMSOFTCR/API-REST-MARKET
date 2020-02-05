@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
+//Routes
 const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const products_routes_1 = __importDefault(require("./routes/products.routes"));
 class App {
@@ -24,6 +25,7 @@ class App {
         this.middlewares();
         this.routes();
     }
+    //check if the port exists, if it exists take it, if it does not exist, place port 3000
     settings() {
         this.app.set('port', this.port || process.env.PORT || 3000);
     }
@@ -38,10 +40,12 @@ class App {
             next();
         });
     }
+    //Routes
     routes() {
         this.app.use(index_routes_1.default);
         this.app.use('/products', products_routes_1.default);
     }
+    //configure the port on listening
     listen() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.app.listen(this.app.get('port'));

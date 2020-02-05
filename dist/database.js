@@ -26,4 +26,4 @@ exports.connect = connect;
 /* host: 'localhost',
 user: 'root',
 database: 'db_sistema',
-connectionLimit: 10 */ 
+connectionLimit: 10 */
