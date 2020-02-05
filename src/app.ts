@@ -18,8 +18,8 @@ export class App{
 
 
     setting(){
-        this.app.set('port', this.port || process.env.PORT || 3000);
-        //this.app.use(cors(config.application.cors.server));
+        this.app.set('port', this.port || process.env.PORT || 3000)
+        
     }
 
     middlewares(){
@@ -41,7 +41,7 @@ export class App{
 
     async listen(){
        await this.app.listen(this.app.get('port'));
-       console.log('Server on port',this.app.get('port'));
+       console.log('Server on port', this.app.get('port'));
     }
 
     
